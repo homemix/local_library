@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.contrib.admin import register
 
-from .models import Book, BookInstance, Language, Author, Genre
+from .models import Author, Book, BookInstance, Genre, Language
+
 
 class BookInline(admin.StackedInline):
     model = Book
@@ -30,7 +30,7 @@ class BookInstanceAdmin(admin.ModelAdmin):
             'fields': ('book', 'imprint', 'id')
         }),
         ('Availability', {
-            'fields': ('status', 'due_back')
+            'fields': ('status', 'due_back', 'borrower')
         }),
     )
 
