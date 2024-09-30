@@ -38,7 +38,9 @@
                             <p>Staff</p>
                             <li><a href="{% url 'librarian-borrowed' %}">All Borrowed</a></li>
                         {% endif %}
-
+                        {% if perms.catalog.add_author %}
+                            <li><a href="{% url 'author-create' %}">Create author</a></li>
+                        {% endif %}
                     {% else %}
                         <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
                     {% endif %}
